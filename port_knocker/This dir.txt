@@ -1,0 +1,2 @@
+Please use this directory to store your semi-important files.
+since this dir isn't very secured I don't want to see any password files or other sensitive data here!
