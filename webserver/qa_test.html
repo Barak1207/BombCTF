@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>QA_Test.html</title>
+<link rel="stylesheet" type="text/css" href="view.css" media="all">
+<script type="text/javascript" src="view.js"></script>
+
+</head>
+<body id="main_body" >
+	
+	<img id="top" src="top.png" alt="">
+	<div id="form_container">
+	
+		<h1><a>QA_Test.html</a></h1>
+		<form id="form_4575" class="appnitro"  method="post" action="report.php">
+					<div class="form_description">
+			<h2>QA_Test.html</h2>
+			<p>We test our stuff, but not that hard.</p>
+		</div>						
+		<ul >
+			
+		<li id="li_1" >
+		<label class="description" for="element_1">Name </label>
+		<span>
+			<input id="fname" name= "fname" class="element text" maxlength="20" size="8" value=""/>
+			<label>First</label>
+		</span>
+		<span>
+			<input id="lname" name= "lname" class="element text" maxlength="20" size="14" value=""/>
+			<label>Last</label>
+		</span> 
+		</li>
+		<li id="li_2" >
+		<label class="description" for="content_box">Content </label>
+		<div>
+			<textarea id="content_box" name="content_box" class="element textarea medium" maxlength="300" oninput="set_content_length()"></textarea> 
+		</div> 
+		</li>
+		<li id="li_4" >
+		<label class="description" for="method_box">Method </label>
+		<div>
+
+		<select class="element select small" id="method_box" name="method_box" onchange="hide_display_content_length()" > 
+			<option value="Get IP" selected="selected">Get IP</option>
+			<option value="Ping" >Ping</option>
+		</select>
+
+		</div> 
+		</li>		
+		<li id="li_5" >
+		<label id="content_length_label" class="description" for="content_length_box" style="display: none">Content Length </label>
+		<div>
+			<input readonly="readonly" id="content_length_box" name="content_length_box" class="element text small" type="number" min="0" max="300" value="0" style="display: none"/> 
+		</div> 
+		</li>
+			
+		<li class="buttons">
+		<input type="hidden" name="form_id" value="4575" />
+
+		<input id="saveForm" class="button_text" type="submit" name="submit" value="Submit" />
+		</li>
+			</ul>
+		</form>	
+	</div>
+	<img id="bottom" src="bottom.png" alt="">
+	</body>
+</html>
+
+<script>
+window.onload = hide_display_content_length;
+function func()
+{
+
+	alert("Test function for this piece of shit code");
+}
+function hide_display_content_length() 
+{
+	var content_length_box = document.getElementById("content_length_box");
+	var content_length_label = document.getElementById("content_length_label");
+
+	method = document.getElementById("method_box").value
+	if (method == "Ping")
+	{
+		content_length_label.style.display = "block";
+		content_length_box.style.display = "block";
+	}
+	else if (method == "Get IP")
+	{
+		content_length_box.style.display = "none";
+	}
+}
+function set_content_length()
+{
+	var content_box = document.getElementById("content_box");
+	var content_length_box = document.getElementById("content_length_box");
+	content_length_box.value = content_box.value.length;
+}
+</script>
+<!--Bug report log date: 11/8/2014 issue: fix 0160 style risks>
